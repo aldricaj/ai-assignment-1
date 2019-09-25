@@ -2,7 +2,7 @@ import sys
 
 import models
 
-from search_algorithims.breadth_first import breadth_first_search
+import search_algorithims
 
 MAX_COST = 100
 
@@ -17,7 +17,7 @@ def main():
     start_state, goal_state = parse_input()
     h1 = models.create_hueristic_1_func(goal_state)
     h2 = models.create_hueristic_2_func(goal_state)
-    breadth_first_search(start_state,goal_state, h1, MAX_COST)
+    search_algorithims.breadth_first_search(start_state,goal_state, h1, MAX_COST)
 
 
 main()
