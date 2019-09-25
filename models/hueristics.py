@@ -29,7 +29,7 @@ def create_hueristic_2_func(goal_board):
             tile_val = curr_state[i]
             tile_coords = to_cartesian_coords(i)
 
-            goal_coords = to_cartesian_coords(goal_state.find(tile_val))
+            goal_coords = to_cartesian_coords(goal_state.index(tile_val))
             delta_x = abs(tile_coords[0] - goal_coords[0])
             delta_y = abs(tile_coords[1] - goal_coords[1])
             move_sum += (delta_x + delta_y)

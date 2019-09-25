@@ -1,6 +1,4 @@
-ROWS = 5
-COLS = 4
-SIZE = ROWS * COLS
+from config import ROWS,COLS, SIZE
 
 def to_cartesian_coords(index):
     return index % COLS, index // COLS

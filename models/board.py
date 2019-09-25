@@ -1,8 +1,7 @@
 import random
 import string
 from models.cartesian_utilities import *
-
-USE_STR_IDS = True
+from config import USE_STR_IDS
 
 class Board():
     def __init__(self, board_state, board_id='root', parent_id=None):

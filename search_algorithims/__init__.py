@@ -1,1 +1,2 @@
 from search_algorithims.breadth_first import breadth_first_search
+from search_algorithims.a_star import a_star_search
