@@ -1,43 +1,23 @@
 import sys
 
-import models.board as models
+import models
+
+from search_algorithims.breadth_first import breadth_first_search
+
+MAX_COST = 100
 
 def parse_input():
-    start_state = None
-    end_state = None
-    if len(sys.argv) > 3:
-        # parse input
-        start_state = []
-        end_state = []
-        for s in sys.argv[1:]:
-            print(s)
-            if s == ' ':
-                continue
-            if len(start_state) == 0:
-                print(str(start_state))
-                start_state.append(s)
-            else:
-                end_state.append(s)
-        # Strip square brackets
-        start_state[0] = start_state[0][1:]
-        start_state[-1] = start_state[-1][:-1]
-        end_state[0] = end_state[0][1]
-        end_state[-1] = end_state[-1][:-1]
-
-    elif len(sys.argv) == 3:
-        start_state = sys.argv[1]
-        end_state = sys.argv[2]
-    else:
-        start_state = input('Start state: ')
-        end_state = input('End state: ')
+    start_state = input('Start state: ')
+    end_state = input('End state: ')
     start_board = models.Board(start_state)
-    end_board = models.Board(end_state)
+    end_board = models.Board(end_state, board_id=-1)
     return start_board, end_board
-
 
 def main():
     start_state, goal_state = parse_input()
-    print('x')
-    print(str(start_state))
+    h1 = models.create_hueristic_1_func(goal_state)
+    h2 = models.create_hueristic_2_func(goal_state)
+    breadth_first_search(start_state,goal_state, h1, MAX_COST)
+
 
 main()
