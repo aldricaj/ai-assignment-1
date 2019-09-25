@@ -35,7 +35,7 @@ def breadth_first_search(start_state, end_state, hueristic_func, max_iters):
                 # Skip over states already visited
                 if board.get_hash() in closed_list.keys():
                     continue
-                open_list.insert(0, (cost_so_far + 2 if tile_val > 9 else 1, board))
+                open_list.insert(0, (cost_so_far + (2 if tile_val > 9 else 1), board))
                 n_added_to_open += 1
             closed_list[start_state.get_hash()] = start_state
             n_added_to_closed += 1

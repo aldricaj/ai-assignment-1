@@ -1,8 +1,11 @@
 import random
+import string
 from models.cartesian_utilities import *
 
+USE_STR_IDS = True
+
 class Board():
-    def __init__(self, board_state, board_id=0, parent_id=None):
+    def __init__(self, board_state, board_id='root', parent_id=None):
         self.state, empty_tile_index = _calculate_state(board_state)
         self.empty_tile = to_cartesian_coords(empty_tile_index)
         self.parent_id = parent_id
@@ -78,6 +81,9 @@ class Board():
 
 def _generate_board_id(parent_id):
     # a relatively unique identifier, would not work for large n, but should work here
+    if USE_STR_IDS:
+        choices = string.ascii_lowercase +'0123456789'
+        return parent_id + '-' + random.choice(choices)
     return parent_id * 100 + random.randint(0,99)
 
 def _calculate_state(board_state):
