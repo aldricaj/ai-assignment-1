@@ -40,5 +40,5 @@ def breadth_first_search(start_state, end_state, hueristic_func, max_iters):
             closed_list[start_state.get_hash()] = start_state
             n_added_to_closed += 1
         
-        display_state(expanded_node.board_id, expanded_node.parent_id, cost_so_far, h_val)
+        display_state(expanded_node.board_id, expanded_node.parent_id, cost_so_far, h_val, None, expanded_node)
     display_final_stats('Breadth-First', i, n_added_to_open, n_added_to_closed, cost)

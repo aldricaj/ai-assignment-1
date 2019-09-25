@@ -22,8 +22,13 @@ def main():
     start_state, goal_state = parse_input()
     h1 = models.create_hueristic_1_func(goal_state)
     h2 = models.create_hueristic_2_func(goal_state)
+    print('\n\n'+'='*50 + '\n\n' + 'Breadth First Search' + '\n\n' +'='*50 + '\n\n')
     search_algorithims.breadth_first_search(start_state,goal_state, h1, MAX_ITERS)
+
+    print('\n\n'+'='*50 + '\n\n' + 'A* Search with h1' + '\n\n' +'='*50 + '\n\n')
     search_algorithims.a_star_search(start_state, goal_state,h1, MAX_ITERS, 'h1')
+    
+    print('\n\n'+'='*50 + '\n\n' + 'A* Search with h2' + '\n\n' +'='*50 + '\n\n')
     search_algorithims.a_star_search(start_state, goal_state,h2, MAX_ITERS, 'h2')
 
 main()

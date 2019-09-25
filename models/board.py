@@ -8,7 +8,11 @@ class Board():
         self.state, empty_tile_index = _calculate_state(board_state)
         self.empty_tile = to_cartesian_coords(empty_tile_index)
         self.parent_id = parent_id
-        self.board_id = board_id
+        if board_id == 'root' and not USE_STR_IDS:
+            self.board_id=0
+        else:
+            self.board_id = board_id
+        self.board_cost = 0
         
     
     def get_hash(self):
